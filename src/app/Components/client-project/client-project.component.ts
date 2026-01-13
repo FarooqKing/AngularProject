@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ClientService } from '../../service/client.service';
-import { IApiResponse, IClient, IEmployee } from '../../Interface/Roles';
+import { IApiResponse, IClient, IClientProject, IEmployee } from '../../Interface/Roles';
 import { Constant } from '../../Constant/constant';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
@@ -40,7 +40,7 @@ requiredMsg : string = Constant.VALIDATION_MSG.Required;
   empList : IEmployee[] = [];
   clientList: IClient[] = [];
   clientProjectList$ :Observable<IApiResponse> = new Observable<IApiResponse>;
-
+  clientProjectList = signal<IClientProject[]>([]);
   ngOnInit(){
     this.getAllClient();
     this.getAllEmp();
@@ -69,6 +69,11 @@ requiredMsg : string = Constant.VALIDATION_MSG.Required;
    getAllClient(){
     this.clientService.getAllClient().subscribe((res:IApiResponse)=>{
       this.clientList=res.data;
+    })
+  }
+  getAllClientProject(){
+    this.clientService.getAllClientProject().subscribe((res:IApiResponse)=>{
+      this.clientProjectList.set(res.data);
     })
   }
 

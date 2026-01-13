@@ -44,3 +44,20 @@ export interface IClient{
 
 
 }
+
+
+export interface IClientProject{
+    ClientProjectId:number;
+    ProjectName:string;
+    StartDate:string;
+    expectedDate:string;
+    LeadByEmpId:number;
+    CompleteDate:string;
+    ContactPerson:string;
+    ContactPersonContactNo:string;
+    TotalEmpWorking: number;
+    ProjectCost:number;
+    ProjectDetail:string;
+    ContactPersonEmailId:string;
+    ClientId:number;
+}

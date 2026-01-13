@@ -18,14 +18,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @for (item of (clientProjectList$ | async)?.data ; track $index) {
+                        <!-- @for (item of (clientProjectList$ | async)?.data ; track $index) { -->
+                        @for (item of  clientProjectList() ; track $index) {
 
                             <tr>
                                 <td>{{$index+1}}</td>
-                                <td>{{item.CompanyName}}</td>
-                                <td> {{item.ContactPersonName}} </td>
-                                <td>{{item.ContactNo}} </td>
-                                <td>{{item.City}} </td>
+                                <td>{{item.ProjectName}}</td>
+                                <td> {{item.ContactPerson}} </td>
+                                <td>{{item.ContactPersonContactNo}} </td>
+                                <td>{{item.CompleteDate}} </td>
                                 <td>
                                     <!-- <button class="btn btn-primary" (click)="onEdit(item)">Edit</button>
                                     <button class="btn btn-danger" (click)="onDelete(item.ClientId)">Delete</button> -->
@@ -33,7 +34,7 @@
                                 </td>
                             </tr>
                         }
-                    </tbody>
+                    </tbody> 
                 </table>
             </div>
         </div>
