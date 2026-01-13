@@ -1,0 +1,12 @@
+<div class="row">   
+    <div class="col-12 text-center">
+        <button class="btn"  [ngClass]="currentComp == 'role'? 'btn-primary' : 'btn-secondary'" (click)="changeByButton('role')">Roles</button>
+        <button class="btn " [ngClass]="currentComp == 'desgination'? 'btn-primary' : 'btn-secondary'"  (click)="changeByButton('desgination')">Designation</button>
+
+    </div>
+    <div class="col-12 pt-5 text-center">
+        <app-role *ngIf="currentComp == 'role'"></app-role>
+        <app-designation *ngIf="currentComp == 'desgination'"></app-designation>
+    </div>
+</div>
+

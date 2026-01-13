@@ -1,0 +1,21 @@
+<div class="row">
+    
+    <div class="col-4">
+       <table class="table table-responsive table-bordered">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>Roles</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of roleArray; let srno = index">
+                <td> {{srno}} </td>
+                <td> {{item.roleName}} </td>
+
+            </tr>
+        </tbody>
+       </table>
+    </div>
+</div>
